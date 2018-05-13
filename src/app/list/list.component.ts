@@ -5,12 +5,13 @@ import { CategoryPipe } from './list.pipe';
 
 @Input()
 
+
+
 @Component({
   selector: 'list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css'],
-  providers: [ ListService ] ,
-  pipes: [CategoryPipe]
+  providers: [ ListService ]
 })
 export class ListComponent implements OnInit{
   tittle = "List of Games";
@@ -53,24 +54,17 @@ export class ListComponent implements OnInit{
         console.log(this.config.heroesUrl);
       });
   }
+  
+  
 
-  sort(property){
-    this.isDesc = !this.isDesc; //change the direction    
-    this.column = property;
-    let direction = this.isDesc ? 1 : -1;
-
-    this.appsName.sort(function(a, b){
-        if(a[property] < b[property]){
-            return -1 * direction;
-        }
-        else if( a[property] > b[property]){
-            return 1 * direction;
-        }
-        else{
-            return 0;
-        }
-    });
-};
+  //angular.module('ngTableTutorial', ['ngTable'])
+       // .controller('tableController', function ($scope, $filter, ngTableParams) {
+ 
+         //   $scope.users = this.appsName;
+ 
+//});
+     //   });
+  
   
   //clickMe(){
     //return appsName.sort((a, b) => a.title.localCompare(b.title));

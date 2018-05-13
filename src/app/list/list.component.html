@@ -1,19 +1,9 @@
-<h2>{{ tittle }}</h2>
+<h2 class="tittle">{{ tittle }}</h2>
 
-<div class="form-group">
-  <div class="col-md-6" >
-    <input type="text" [(ngModel)]="searchText" 
-           class="form-control" placeholder="Search By Category" />
-  </div>
-</div>
-<i class="fa" 
-[ngClass]="{'fa-sort': column != 'title', 
-                    'fa-sort-asc': (column == 'title' && !isDesc), 
-                    'fa-sort-desc': (column == 'title' && isDesc) }"
-aria-hidden="true"> </i>
+
 
 <div class="col-md-12">
-  <table class="table table-responsive table-hover">
+  <table ng-table="usersTable" class="table table-responsive table-hover table-striped table-bordered list-table">
     <tr>
       <th class="pointer" (click)="sort('title')">Title </th>
       <th class="pointer" (click)="sort('url')" > Url </th>
@@ -24,13 +14,13 @@ aria-hidden="true"> </i>
       <th class="pointer" (click)="sort('release_year')" > Release Year </th> 
     </tr>
     <tr *ngFor="let app of appsName | category: searchText">
-      <td>{{app.title}}</td>
-      <td>{{app.url}}</td>
-      <td>{{app.platform}}</td>
-      <td>{{app.score}}</td>
-      <td>{{app.genre}}</td>
-      <td>{{app.editors_choice}}</td>
-      <td>{{app.release_year}}</td>
+      <td data-title="'title'">{{app.title}}</td>
+      <td data-title="'url'">{{app.url}}</td>
+      <td data-title="'platform'">{{app.platform}}</td>
+      <td data-title="'score'">{{app.score}}</td>
+      <td data-title="'genre'">{{app.genre}}</td>
+      <td data-title="'editors_choice'">{{app.editors_choice}}</td>
+      <td data-title="'release_year'">{{app.release_year}}</td>
     </tr>
   </table>
 </div>
