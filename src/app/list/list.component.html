@@ -1,0 +1,15 @@
+<h2>{{ tittle }}</h2>
+
+<button class="btn btn-primary" (click)="clickMe()">Sort</button>
+<ul class="appsName">
+  <li *ngFor="let app of appsName" > 
+      <span>
+        {{ app.tittle}}
+      </span> {{ app.url}}
+      {{ app.platform}}
+      {{ app.score}}
+      {{ app.genre}}
+      {{ app.editors_choice}}
+      {{ app.release_year}}
+  </li>
+</ul>
